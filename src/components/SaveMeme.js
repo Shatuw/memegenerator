@@ -1,6 +1,6 @@
 import React from 'react'
 import domtoimage from 'dom-to-image';
-//import { saveAs } from 'file-saver';
+import { saveAs } from 'file-saver';
 
 //try next ? : https://dev.to/lico/react-download-html-element-as-an-image-file-53ok
 
@@ -9,11 +9,10 @@ export default function SaveMeme({ memeRef }) {
     //console.log(memeRef); //checked
 
     const downloadMeme = async () => {
-        const obj = await domtoimage.toBlob(() => memeRef)
-        console.log(obj);
-        // .then((blob) => {
-        //     window.saveAs(blob, 'my-meme.png');
-        // });
+        await domtoimage.toBlob(memeRef.current)
+        .then((blob) => {
+            window.saveAs(blob, 'my-meme.png');
+        });
     };//end func downloadMeme
 
     return (
