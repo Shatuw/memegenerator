@@ -24,7 +24,6 @@ export default function Memepic({ memeUrl, setMemeUrl, setMemeArray, setActualMe
     return (
         
         <img
-            ref={memeRef}
             className='max-w-xl w-full p-2'
             src={memeUrl}
             alt="meme" 
